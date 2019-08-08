@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.aexp.exercises.udacity</groupId>
+    <artifactId>group-by-first-char</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <junit.version>4.12</junit.version>
+        <maven.shader.version>3.2.1</maven.shader.version>
+        <maven.compiler.version>3.8.0</maven.compiler.version>
+        <maven.resource.version>3.1.0</maven.resource.version>
+        <maven.assembly.version>3.1.1</maven.assembly.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+    <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+    </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>${maven.shader.version}</version>
+        <configuration>
+            <filters>
+                <filter>
+                    <artifact>*:*</artifact>
+                    <excludes>
+                        <exclude>META-INF/*.SF</exclude>
+                        <exclude>META-INF/*.DSA</exclude>
+                        <exclude>META-INF/*.RSA</exclude>
+                    </excludes>
+                </filter>
+            </filters>
+        </configuration>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>shade</goal>
+                </goals>
+                <configuration>
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <manifestEntries>
+                                <Main-Class>io.vertx.core.Launcher</Main-Class>
+                                <Main-Verticle>com.aexp.gpc.verticle.MainVerticle</Main-Verticle>
+                            </manifestEntries>
+                        </transformer>
+                    </transformers>
+                    <artifactSet/>
+                    <outputFile>${project.build.directory}/app.jar</outputFile>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+    </build>
+
+</project>
