@@ -1,4 +1,4 @@
-package com.example.springbootfileupload;
+package com.example.springbootfileupload.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,16 +25,9 @@ public class UploadController {
 
         // Save to disk
         // file path example 1) Windows c:/, 3) Mac ~/Documents/
-        String filePath = "/Users/rrdiez/Documents/";
-        file.transferTo(new File(filePath + file.getOriginalFilename()));
+        String targetPath = "/Users/rrdiez/Documents/";  //for mac use absolute path
+        file.transferTo(new File(targetPath + file.getOriginalFilename()));
         result.put("Success", true);
-        return result;
-    }
-
-    @RequestMapping("/hello")
-    public Map<String, Object> hello() {
-        result.put("name", "Stephen");
-        result.put("city", "San Jose");
         return result;
     }
 }

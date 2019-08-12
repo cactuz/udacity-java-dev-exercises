@@ -10,3 +10,10 @@ There are guide notes in the code.
 
 ###Running the application:
 To get the view use: localhost:8080/students
+
+The result should come out as:
+Student Grade Table
+Student ID	Student Name	Grade
+1	        Tom	            80.5
+2	        Jerry	        90.4
+3	        Paul	        77.5
