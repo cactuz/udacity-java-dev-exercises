@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"> <!--this header is unique to thymeleaf,
+without it th: below will not be recognized.
+ -->
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaft Demo</title>
+</head>
+<body>
+<span th:text="${message}"></span>  <!--${message} maps a model attribute with the key= "message", check the controller for this mapping-->
+</body>
+</html>
