@@ -12,7 +12,7 @@ import java.util.Map;
 public class HelloController {
     private Map<String, Object> result = new HashMap<>();
 
-    @RequestMapping("/hello")
+    @RequestMapping({"/hello", "/log"})
     @ResponseBody
     public Map<String, Object> hello1() { //method name does not have to be the same as the mapping
         result.put("name", "Stephen");
