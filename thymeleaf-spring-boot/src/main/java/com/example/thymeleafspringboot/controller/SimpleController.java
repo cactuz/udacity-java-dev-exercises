@@ -9,7 +9,7 @@ public class SimpleController {
 
     @RequestMapping("simple")   //required
     public String demo(Model model) {
-        model.addAttribute("message", "Hello Thymeleaf");
+        model.addAttribute("message", "Hello Thymeleaf Testing!!!");
         return "demo";  //maps to demo.html from /templates
     }
 }

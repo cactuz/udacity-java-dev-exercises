@@ -13,7 +13,7 @@ public class GradeController {
     @RequestMapping("grade")
     public String demo2(Model model) {
         model.addAttribute("message", "Hello Thymeleaf");
-        double grade = 90.5;
+        double grade = 40;
         model.addAttribute("grade", grade);
         model.addAttribute("GPA", convertGPA(grade));
         // return to templates/demo.html page.

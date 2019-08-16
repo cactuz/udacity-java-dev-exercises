@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RequestParmsController {
 
     @RequestMapping("parms")
-    public String grades(Model model, @RequestParam("grade") double grade, @RequestParam("name")
-            String
-            name) {
+    public String grades(Model model, @RequestParam("grade") double grade, @RequestParam("name") String name) {
         model.addAttribute("message", "Hello " + name);
         model.addAttribute("name", name);
         model.addAttribute("grade", grade);
